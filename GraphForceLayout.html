@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS 519: Scientific Visualization: Force-Directed Graph Layout</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <style>
+        .radio {
+            padding-bottom: 10px;
+        }
+        #mp2 {
+            margin-top: 30px;
+        }
+
+        #mp2 canvas {
+            border: 2px solid black;
+        }
+        #msg {
+            border: 2px solid blue;
+            width: 300px;
+            height: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid" id="mp2">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-inline" id="input_form">
+                    <fieldset>
+                        <legend>Graph Layout Parameters</legend>
+                        <div class="radio">
+                            <label><input id="test1" type="radio" name="radio">Test with a lot of points</label>
+                            <label><input id="test2" type="radio" name="radio">Test with 4 points</label>
+                            <label><input id="test3" type="radio" name="radio" checked>Test with random points</label>
+                        </div>
+                        <br>
+                        Maximum movement<input class="form-control" type="text" id="t" value="10.0"><br><br>
+                        Damping value <input class="form-control" type="text" id="delta_t" value="0.0"><br><br>
+                        Number of iterations <input class="form-control" type="text" id="num_iter" placeholder="No Limit" disabled><br><br>
+                        Use default k value <input class="form-control" type="checkbox" id="default_k" checked><br>
+                        User-provided k value<input class="form-control" type="text" id="k" value="133" disabled><br><br>
+                        <!--
+                        Vertex diameter<input class="form-control" type="text" id="v_size" value="5"><br><br>
+                        Edge thickness<input class="form-control" type="text" id="e_size" value="1"><br><br>
+                        -->
+                    </fieldset>
+                </form>
+                <button class="btn btn-primary">Animate</button>
+                <div id="msg">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <canvas id ="example" width ="640" height ="480">
+                    Please use a browser that supports "canvas"
+                </canvas >
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="GraphForceLayout.js"></script>
+</body>
+</html>
